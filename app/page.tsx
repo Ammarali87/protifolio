@@ -34,9 +34,25 @@ export default function Home() {
      <Slider/>
   </section>
   <section className=" h-1/5 text-center space-5  bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
-                <h1> Tech we  use </h1>
+             <h1> Tech we  use </h1>
+             {/* <section className=" h-1/5  space-5  bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
+        <div className="flex py-11  overflow-x-scroll justify-center gap-4">
+        <img src="/html-1.svg" className=" ms-[196px] h-[20vh] object-contain" alt="HTML logo" />
+        <img src="/1174949_js_react js_logo_react_react native_icon.svg" className="h-[20vh] object-contain" alt="React logo" />
+        <img src="/1174949_js_react js_logo_react_react native_icon.svg" className="h-[20vh] object-contain" alt="React logo" />
+        <img src="/tailwindcss.svg" className="h-[20vh] object-contain" alt="Tailwind CSS logo" />
+        <img src="/tailwindcss.svg" className="h-[20vh] object-contain" alt="Tailwind CSS logo" />
+        <img src="/tailwindcss.svg" className="h-[20vh] object-contain" alt="Tailwind CSS logo" />
+        <img src="/tailwindcss.svg" className="h-[20vh] object-contain" alt="Tailwind CSS logo" />
+        <img src="/tailwindcss.svg" className="h-[20vh] object-contain" alt="Tailwind CSS logo" />
+        <img src="/logo-javascript.svg" className="h-[20vh] object-contain" alt="JavaScript logo" />
+        <img src="/1174949_js_react js_logo_react_react native_icon.svg" className="h-[20vh] object-contain" alt="React logo" />
+        <img src="/logo-color.svg" className="h-[20vh] object-contain" alt="Color logo" />
+      </div>
+ 
+  </section> */}
            
-                <TechSlider/>
+     <TechSlider/>
   </section>
   {/* max-w-6xl */}
 

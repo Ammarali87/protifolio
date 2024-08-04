@@ -24,7 +24,7 @@ const TechSlider: React.FC = () => {
     return () => clearInterval(intervalId); // Clean up on unmount
   }, []);
 
-  return (
+  return (   
     <section className="h-1/5 bg-gray-800 p-8 rounded-lg shadow-lg mb-8">
       <div
         ref={sliderRef}
