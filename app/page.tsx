@@ -7,7 +7,7 @@ import AnimateText from '@/components/AnimateText/AnimateText';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[#1A202C] p-8">
-      <div className="flex flex-col md:flex-row items-center h-screen justify-center mt-3 md:mt-[-22px]">
+      <div className="flex bg-material-ui flex-col md:flex-row items-center h-screen justify-center mt-3 md:mt-[-22px]">
         <section className="w-full mt-[-61px] max-w-4xl text-center mb-12">
           <h1 className="text-5xl w-[30vw] mx-auto text-indigo-700 mb-11">
             <AnimateText />
