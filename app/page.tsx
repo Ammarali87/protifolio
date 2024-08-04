@@ -34,9 +34,9 @@ export default function Home() {
      <Slider/>
   </section>
   <section className=" h-1/5 text-center space-5  bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
-             <h1> Tech we  use </h1>
- 
-     <TechSlider/>
+                <h1> Tech we  use </h1>
+           
+                <TechSlider/>
   </section>
   {/* max-w-6xl */}
 
