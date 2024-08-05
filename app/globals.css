@@ -27,12 +27,12 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-35%);
   }
 }
 
 .animate-marquee-right {
-  animation: marquee-right 20s linear infinite;
+  animation: marquee-right 13s linear infinite;
 }
 
 .active {

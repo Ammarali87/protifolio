@@ -10,47 +10,56 @@ const TechSlider: React.FC = () => {
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
           <img
             src="/css-3.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
           <img
             src="/sass-1.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
           <img
             src="/material-ui-1.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
           <img
             src="/logo-javascript.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="JavaScript logo"
           />
+          <br/>
           <img
             src="/tailwindcss.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
          
           <img
             src="/html-1.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Color logo"
           />
+          <br/>
           <img
             src="/bootstrap-5-1.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Color logo"
           />
+          <br/>
          <img
             src="/css-3.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
+          <br/>
         </div>
 
       </div>

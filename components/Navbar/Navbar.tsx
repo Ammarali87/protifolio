@@ -73,7 +73,7 @@ function Navbar(props: { window?: () => Window }) {
               <MenuIcon />
             </IconButton>
             <Link href="/" passHref>
-              <img src="amar.png" alt="Logo" style={{ height: '50px', cursor: 'pointer' }} />
+              <img src="amar.png" className='rounded-full' alt="Logo" style={{ height: '50px', cursor: 'pointer' }} />
             </Link>
           </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
