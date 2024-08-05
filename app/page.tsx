@@ -42,14 +42,16 @@ export default function Home() {
           />
       </section>
 
-      <section className="w-full max-w-6xl bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
+      <section className="w-full max-w-6xl  p-8 rounded-lg shadow-lg mb-8">
         <h2 className="text-5xl text-center text-gray-100 mb-4">Services</h2>
-        <p className="text-sm sm:text-lg text-gray-300">
-          We are committed to designing a professional website that meets your business and marketing goals. We use the latest technology to deliver high-quality results, all within a timely manner and at an affordable price.
+        <p className="text-xl sm:text-lg text-gray-300">
+          We are committed to designing a professional website that 
+          meets your business and marketing goals. We use the latest technology 
+          , all within a timely manner and at an affordable price.
         </p>
       </section>
 
-      <section className="h-1/5 flex-col md:flex-row space-5 bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
+      <section className="h-1/5 flex-col md:flex-row space-5  p-8 rounded-lg shadow-lg mb-8">
         <Slider />
       </section>
 
