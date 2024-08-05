@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Slider from "../components/Slider/Slider";
-import TechSlider from "../components/TechSlider/TechSlider";
+// import TechSlider from "../components/TechSlider/TechSlider";
 import AnimateText from '@/components/AnimateText/AnimateText';
 
 export default function Home() {
