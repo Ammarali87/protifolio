@@ -7,53 +7,49 @@ const TechSlider: React.FC = () => {
         <div className="flex gap-4 animate-marquee-right md:animate-none">
           <img
             src="/tailwindcss.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
           <img
             src="/css-3.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
           <img
             src="/sass-1.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
           <img
             src="/material-ui-1.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
           <img
             src="/logo-javascript.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="JavaScript logo"
           />
           <img
             src="/tailwindcss.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"
           />
-          <img
-            src="/1174949_js_react_js_logo_react_react_native_icon.svg"
-            className="h-10 sm:h-14"
-            alt="React logo"
-          />
+         
           <img
             src="/html-1.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Color logo"
           />
           <img
             src="/bootstrap-5-1.svg"
-            className="h-10 sm:h-14"
+            className=" mx-6 h-10 sm:h-14"
             alt="Color logo"
           />
-          <img
-            src="/logo-colorhtml-1.svg"
-            className="h-10 sm:h-14"
-            alt="Color logo"
+         <img
+            src="/css-3.svg"
+            className=" mx-6 h-10 sm:h-14"
+            alt="Tailwind CSS logo"
           />
         </div>
 

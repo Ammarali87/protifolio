@@ -12,7 +12,7 @@ export default function Contact(){
       <p className="my-4 text-xl">Phone : +2010 69 509 457</p>
       </div>
 
-        <img src="/contact.jpg" className="lg:w-1/2 ms-6" alt="" />
+        <img src="/contact.jpg" className="lg:w-1/2 ms-11" alt="" />
 
     </main>
         );
