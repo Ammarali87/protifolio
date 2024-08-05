@@ -21,10 +21,20 @@
   scrollbar-width: none; /* Firefox */
 }
 
-/* .header{
-  background-image: 
-} */
  
+@keyframes marquee-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-right {
+  animation: marquee-right 20s linear infinite;
+}
+
 .active {
   color: blue;
   font-weight: 800;

@@ -30,10 +30,15 @@ export default function Home() {
           src="/vid.mp4"
           aria-label="Background Video"
         />
-      <section className="items-start justify-center text-center
-       overflow-x-scroll scrollbar-hide  space-5 bg-[#2D3748]  p-8 rounded-lg shadow-lg mb-8">
+      <section className="items-start justify-center  text-center
+       overflow-x-scroll scrollbar-hide space-5  p-8 rounded-lg shadow-lg mb-8">
         <h1>Tech We Use</h1>
         <TechSlider />
+        <img
+            src="/logo-color.svg"
+            className="h-10 sm:h-14 hidden"
+            alt="Color logo"
+          />
       </section>
 
       <section className="w-full max-w-6xl bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
@@ -51,3 +56,6 @@ export default function Home() {
     </main>
   );
 }
+
+
+
