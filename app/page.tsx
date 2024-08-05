@@ -30,17 +30,17 @@ export default function Home() {
           src="/vid.mp4"
           aria-label="Background Video"
         />
-      <section className="items-start justify-center  text-center
+      {/* <section className="items-start justify-center  text-center
        overflow-x-scroll scrollbar-hide space-5  p-8 rounded-lg shadow-lg mb-8">
         <h1>Tech We Use</h1>
         <br />
-        {/* <TechSlider /> */}
+        <TechSlider />
         <img
             src="/logo-color.svg"
             className="h-10 sm:h-14 hidden"
             alt="Color logo"
           />
-      </section>
+      </section> */}
 
       <section className="w-full max-w-6xl bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
         <h2 className="text-5xl text-center text-gray-100 mb-4">Services</h2>
