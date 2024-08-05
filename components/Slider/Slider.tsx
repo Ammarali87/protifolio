@@ -15,14 +15,14 @@ const Slider: React.FC = () => {
     {
       name: "Note App 1",
       description: "Get in Touch",
-      img: "/Workout-rafiki.png",
-      link: "https://example.com"
+      img: "/note.png",
+      link: "https://my-note-vert.vercel.app/"
     },
     {
       name: "Fresh Store 2",
       description: "Awesome work",
-      img: "/Workout-rafiki.png",
-      link: "https://example.com"
+      img: "/store.png",
+      link: "https://store-omega-ten.vercel.app/"
     },
     {
       name: "Project 3",

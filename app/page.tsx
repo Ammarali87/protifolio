@@ -18,7 +18,7 @@ export default function Home() {
 
         <section className="w-1/2 max-w-4xl mt-[-61px] p-8 mb-8 rounded-lg shadow-lg">
           <div className="">
-            <img src="logo-color.svg" className="rounded-full" alt="Logo" />
+            <img src="amar.png" className="rounded-full" alt="Logo" />
           </div>
         </section>
       </div>
@@ -33,6 +33,7 @@ export default function Home() {
       <section className="items-start justify-center  text-center
        overflow-x-scroll scrollbar-hide space-5  p-8 rounded-lg shadow-lg mb-8">
         <h1>Tech We Use</h1>
+        <br />
         <TechSlider />
         <img
             src="/logo-color.svg"
