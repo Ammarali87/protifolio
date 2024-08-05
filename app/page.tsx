@@ -34,7 +34,7 @@ export default function Home() {
        overflow-x-scroll scrollbar-hide space-5  p-8 rounded-lg shadow-lg mb-8">
         <h1>Tech We Use</h1>
         <br />
-        <TechSlider />
+        {/* <TechSlider /> */}
         <img
             src="/logo-color.svg"
             className="h-10 sm:h-14 hidden"
