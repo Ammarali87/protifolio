@@ -25,17 +25,17 @@ const Slider: React.FC = () => {
       link: "https://store-omega-ten.vercel.app/"
     },
     {
-      name: "Project 3",
-      description: "No Limit 3",
-      img: "/Workout-rafiki.png",
-      link: "https://example.com"
+      name: "Note App 1",
+      description: "Get in Touch",
+      img: "/note.png",
+      link: "https://my-note-vert.vercel.app/"
     },
     {
-      name: "Project 4",
-      description: "Better future 4",
-      img: "/Workout-rafiki.png",
-      link: "https://example.com"
-    }
+      name: "Fresh Store 2",
+      description: "Awesome work",
+      img: "/store.png",
+      link: "https://store-omega-ten.vercel.app/"
+    },
   ];
 
   const chunkArray = (array: ItemType[], chunkSize: number): ItemType[][] => {
