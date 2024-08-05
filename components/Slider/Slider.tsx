@@ -60,7 +60,7 @@ const Slider: React.FC = () => {
 
   return (
     <main className="flex min-h-screen flex-col  items-center justify-center bg-[#30549b] p-8">
-      <h1 className="text-3xl text-white mb-7">My Projects</h1>
+      <h1 className="text-3xl text-white mb-7">My Projects </h1>
       <Carousel className="w-[70vw] ">
         {chunkedItems.map((itemPair, index) => (
           <div key={index} className="flex justify-center space-x-4">
