@@ -1,5 +1,5 @@
 import React from 'react';
-
+//  Better slider CSS only  https://codepen.io/ferbcode/pen/QWYzRjj
 const TechSlider: React.FC = () => {
   return (
     <section className="p-4 sm:p-6 md:p-8 rounded-lg ">
