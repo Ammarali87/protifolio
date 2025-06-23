@@ -1,79 +1,102 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navItems = [
-  { path: '/', name: 'Home' },
-  { path: '#about', name: 'About' },
-  { path: '#contact', name: 'Contact' },
+  { path: '/', name: 'Home', id: 'home' },
+  { path: '/#about', name: 'About', id: 'about' },
+  { path: '/#contact', name: 'Contact', id: 'contact' },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState('home');
 
+  // Effect to handle scroll position and set active nav item
   useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMenuOpen(false);
-      }
-    };
-    if (menuOpen) document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [menuOpen]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    navItems.forEach((item) => {
+      const section = document.getElementById(item.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="relative mt-[-7px]  z-[1000]">
-      <div className="flex items-center justify-between p-4 bg-[#003888]/50 text-white shadow-md rounded-xl m-2">
-          <Image src="/amar.png" alt="logo" width={48} height={45} className="rounded-full ms-2" />
-        <div className="flex text-center mx-auto items-center gap-2">
-          <h1 className="text-2xl ms-12 font-bold">Amar Ali</h1>
-        </div>
-
-        {/* Desktop Navigation */}
-        <ul className="hidden sm:flex gap-6 text-sm font-semibold">
-          {navItems.map(({ path, name }) => (
-            <li key={name}>
-              <Link
-                href={path}  
-                className="px-4 py-3 rounded-md transition-all duration-200 hover:bg-[#003888]/100 hover:text-white"
-              >
-                {name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile Toggle Button */}
-        <button className="sm:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          ref={menuRef}
-          className="fixed top-0 right-0 w-2/3 h-full bg-white text-[#003888] shadow-lg flex flex-col p-4 gap-4 sm:hidden transition-transform duration-300"
-        >
-          <div className="flex justify-between items-center">
-            <p className="text-lg font-bold ms-3">Menu</p>
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <X size={28} />
-            </button>
+    <>
+      <nav className="w-full bg-[#003888] text-white shadow-md fixed top-0 left-0 z-[9999] scroll-smooth">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <Image src="/amar.png" alt="logo" width={40} height={40} className="rounded-full" />
+            <span className="font-bold hover:text-yellow-300 transition text-xl">Amar Ali</span>
           </div>
 
-          <ul className="flex flex-col gap-4 text-base">
-            {navItems.map(({ path, name }) => (
+          {/* Desktop menu */}
+          <ul className="hidden md:flex gap-8 font-semibold">
+            {navItems.map(({ path, name, id }) => (
+              <li key={name} className="group relative">
+                <Link
+                  href={path}
+                  className={`transition-colors duration-300 ${
+                    activeId === id ? 'text-yellow-300' : 'hover:text-yellow-300'
+                  }`}
+                  scroll={true}
+                >
+                  {name}
+                </Link>
+                <span
+                  className={`absolute bottom-[-4px] left-0 h-[2px] bg-yellow-300 transition-all duration-300 ${
+                    activeId === id ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Hamburger menu icon */}
+          <button
+            className="md:hidden flex flex-col gap-1"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div
+          className={`md:hidden bg-[#003888] transition-all duration-300 overflow-hidden ${
+            open ? 'max-h-60 py-2' : 'max-h-0 py-0'
+          }`}
+        >
+          <ul className="flex flex-col gap-4 px-6">
+            {navItems.map(({ path, name, id }) => (
               <li key={name}>
                 <Link
                   href={path}
-                  className="px-4 py-2 rounded-md transition-all duration-200 hover:bg-[#003888]/100 hover:text-white"
+                  className={`block py-2 px-3 rounded transition ${
+                    activeId === id
+                      ? 'text-yellow-300'
+                      : 'hover:bg-white/10 hover:text-yellow-300'
+                  }`}
+                  scroll={true}
+                  onClick={() => setOpen(false)}
                 >
                   {name}
                 </Link>
@@ -81,7 +104,97 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-      )}
-    </div>
+      </nav>
+
+      {/* Spacer to prevent content being hidden behind navbar */}
+      <div className="mb-14" />
+    </>
   );
 }
+
+
+
+
+
+// 'use client';
+
+// import { useState } from 'react';
+// import Link from 'next/link';
+// import Image from 'next/image';
+
+// const navItems = [
+//   { path: '/', name: 'Home' },
+//   { path: '/#about', name: 'About' },
+//   { path: '/#contact', name: 'Contact' },
+// ];
+
+// export default function Navbar() {
+//   const [open, setOpen] = useState(false);
+
+//   return (
+//     <>
+//       <nav className="w-full bg-[#003888] text-white shadow-md fixed top-0 left-0 z-[9999]">
+//         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+//           {/* Logo */}
+//           <div className="flex items-center gap-2">
+//             <Image src="/amar.png" alt="logo" width={40} height={40} className="rounded-full" />
+//             <span className="font-bold hover:text-yellow-300 transition text-xl">Amar Ali</span>
+//           </div>
+
+//           {/* Desktop menu */}
+//           <ul className="hidden md:flex gap-8 font-semibold">
+//             {navItems.map(({ path, name }) => (
+//               <li key={name} className="group relative">
+//                 <Link
+//                   href={path}
+//                   className="transition-colors duration-300 hover:text-yellow-300"
+//                 >
+//                   {name}
+//                 </Link>
+//                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-yellow-300 group-hover:w-full transition-all duration-300"></span>
+//               </li>
+//             ))}
+//           </ul>
+
+//           {/* Hamburger menu icon */}
+//           <button
+//             className="md:hidden flex flex-col gap-1"
+//             aria-label="Toggle menu"
+//             onClick={() => setOpen((prev) => !prev)}
+//           >
+//             <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+//             <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? 'opacity-0' : ''}`}></span>
+//             <span className={`block w-7 h-1 bg-white rounded transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+//           </button>
+//         </div>
+
+//         {/* Mobile menu */}
+//         <div
+//           className={`md:hidden bg-[#003888] transition-all duration-300 overflow-hidden ${
+//             open ? 'max-h-60 py-2' : 'max-h-0 py-0'
+//           }`}
+//         >
+//           <ul className="flex flex-col gap-4 px-6">
+//             {navItems.map(({ path, name }) => (
+//               <li key={name}>
+//                 <Link
+//                   href={path}
+//                   className="block active py-2 px-3 rounded hover:bg-white/10 hover:text-yellow-300 transition"
+//                   onClick={() => setOpen(false)}
+//                 >
+//                   {name}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//       </nav>
+
+//       {/* Bottom Margin Spacer to avoid content being hidden behind fixed navbar */}
+//       <div className="mb-11" />
+//     </>
+//   );
+// }
+
+
+

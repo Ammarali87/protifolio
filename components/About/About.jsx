@@ -1,8 +1,7 @@
 // About.tsx
 export default function About() {
   return (
-    <main
-      id="about"
+   <main id="about" 
       className="flex min-h-screen flex-col lg:flex-row items-center 
       justify-center bg-[#003888]/90 px-6 py-12"
     >
