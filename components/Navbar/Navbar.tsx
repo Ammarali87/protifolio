@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 const navItems = [
   { path: '/', name: 'Home' },
-  { path: '/about', name: 'About' },
-  { path: '/contact', name: 'Contact' },
+  { path: '#about', name: 'About' },
+  { path: '#contact', name: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <div className="relative mt-[-7px]  z-[1000]">
       <div className="flex items-center justify-between p-4 bg-[#003888]/50 text-white shadow-md rounded-xl m-2">
-          <Image src="/amar.png" alt="logo" width={62} height={45} className="rounded-full ms-2" />
+          <Image src="/amar.png" alt="logo" width={48} height={45} className="rounded-full ms-2" />
         <div className="flex text-center mx-auto items-center gap-2">
           <h1 className="text-2xl ms-12 font-bold">Amar Ali</h1>
         </div>

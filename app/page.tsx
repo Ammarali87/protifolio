@@ -3,8 +3,8 @@ import React from 'react';
 import Slider from "../components/Slider/Slider";
 // import TechSlider from "../components/TechSlider/TechSlider";
 import AnimateText from '@/components/AnimateText/AnimateText';
-import About from './about/page';
-import Contact from './contact/page';
+import About from "@/components/About/About"
+import Contact from "@/components/Contact/Contact"
 
 export default function Home() {
   return (
