@@ -5,7 +5,7 @@ const TechSlider: React.FC = () => {
     <section className="p-4 sm:p-6 md:p-8 rounded-lg ">
       <div className="flex py-2 sm:py-4 justify-start gap-4 w-full overflow-x-auto md:overflow-x-hidden">
         <div className="flex gap-4 animate-marquee-right md:animate-none">
-          <img
+          <img 
             src="/tailwindcss.svg"
             className=" mx-6 h-10 sm:h-14"
             alt="Tailwind CSS logo"

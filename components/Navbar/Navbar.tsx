@@ -1,119 +1,87 @@
 'use client';
 
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-const drawerWidth = 240;
 const navItems = [
   { path: '/', name: 'Home' },
   { path: '/about', name: 'About' },
   { path: '/contact', name: 'Contact' },
 ];
 
-function Navbar(props: { window?: () => Window }) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const pathname = usePathname();
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Amar Ali
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <Link href={item.path} key={item.name} className={pathname === item.path ? 'active' : ''}>
-            <ListItem disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item.name} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
+  useEffect(() => {
+    const handleClickOutside = (e: any) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [menuOpen]);
 
   return (
-    <Box sx={{ display: 'flex', backgroundColor: "#1A202C" ,paddingTop:"8px" }}>
-      <CssBaseline />
-      <AppBar component="nav" sx={{ backgroundColor: '#003888', height: '70px' }}>
-        <Toolbar sx={{ minHeight: '70px', px: { xs: 1, sm: 2 }, justifyContent: 'space-between' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ display: { sm: 'none' }, mx: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link href="/" passHref>
-              <img src="amar.png" className='rounded-full' alt="Logo" style={{ height: '50px', cursor: 'pointer' }} />
-            </Link>
-          </Box>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
-           <span className='ms-8 lg:ms-[76px] lg:text-3xl '>  Amar Ali</span>
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' }, textAlign: 'right' }}>
-            {navItems.map((item) => (
-              <Link href={item.path} key={item.name} className={pathname === item.path ? 'active p-3 rounded-md' : ''}>
-                <Button sx={{ color: '#fff' }}>{item.name}</Button>
+    <div className="relative mt-[-7px]  z-[1000]">
+      <div className="flex items-center justify-between p-4 bg-[#003888]/50 text-white shadow-md rounded-xl m-2">
+          <Image src="/amar.png" alt="logo" width={62} height={45} className="rounded-full ms-2" />
+        <div className="flex text-center mx-auto items-center gap-2">
+          <h1 className="text-2xl ms-12 font-bold">Amar Ali</h1>
+        </div>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden sm:flex gap-6 text-sm font-semibold">
+          {navItems.map(({ path, name }) => (
+            <li key={name}>
+              <Link
+                href={path}  
+                className="px-4 py-3 rounded-md transition-all duration-200 hover:bg-[#003888]/100 hover:text-white"
+              >
+                {name}
               </Link>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Toggle Button */}
+        <button className="sm:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div
+          ref={menuRef}
+          className="fixed top-0 right-0 w-2/3 h-full bg-white text-[#003888] shadow-lg flex flex-col p-4 gap-4 sm:hidden transition-transform duration-300"
         >
-          {drawer}
-        </Drawer>
-      </nav>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-      </Box>
-    </Box>
+          <div className="flex justify-between items-center">
+            <p className="text-lg font-bold ms-3">Menu</p>
+            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+              <X size={28} />
+            </button>
+          </div>
+
+          <ul className="flex flex-col gap-4 text-base">
+            {navItems.map(({ path, name }) => (
+              <li key={name}>
+                <Link
+                  href={path}
+                  className="px-4 py-2 rounded-md transition-all duration-200 hover:bg-[#003888]/100 hover:text-white"
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
-
-Navbar.propTypes = {
-  window: PropTypes.func,
-};
-
-export default Navbar;
