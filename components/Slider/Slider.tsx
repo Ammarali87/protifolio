@@ -13,28 +13,28 @@ interface ItemType {
 const Slider: React.FC = () => {
   const items: ItemType[] = [
     {
-      name: "Note App 1",
+      name: "Fresh Store",
       description: "Get in Touch",
-      img: "/note.png",
+      img: "/store.png",
+      link: "https://store-omega-ten.vercel.app"
+    },
+    {
+      name: "E-commerce REST API ",
+      description: "Awesome work",
+      img: "/ApiGit.png",
+      link: "https://github.com/Ammarali87/Ecommerce-Api/tree/Security-Express/back"
+    },
+    {
+      name: "Note App 2",
+      description: "Get in Touch",
+      img: "/note2.png",
       link: "https://my-note-vert.vercel.app/"
     },
     {
-      name: "Fresh Store 2",
+      name: "Melify Food",
       description: "Awesome work",
-      img: "/store.png",
-      link: "https://store-omega-ten.vercel.app/"
-    },
-    {
-      name: "Note App 1",
-      description: "Get in Touch",
-      img: "/note.png",
-      link: "https://my-note-vert.vercel.app/"
-    },
-    {
-      name: "Fresh Store 2",
-      description: "Awesome work",
-      img: "/store.png",
-      link: "https://store-omega-ten.vercel.app/"
+      img: "/melify.png",
+      link: "https://alfaroukroute.github.io/Mealify"
     },
   ];
 
