@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Slider from "../components/Slider/Slider";
-// import TechSlider from "../components/TechSlider/TechSlider";
+import TechSlider from "../components/TechSlider/TechSlider";
 import AnimateText from '@/components/AnimateText/AnimateText';
 import About from "@/components/About/About"
 import Contact from "@/components/Contact/Contact"
@@ -32,9 +32,14 @@ export default function Home() {
           src="/vid.mp4"
           aria-label="Background Video"
         />
-
-
-
+      <div className=" w-full text-center mb-24">
+      <h2 className=' text-2xl rounded-lg p-3 bg-[#003888] mb-3'>
+         Tech we use 
+         </h2>
+         <div className=" bg-[#003888]/30">
+      <TechSlider/>
+         </div>
+       </div>
 
       <section className="w-full max-w-6xl text-center bg-[#2D3748] p-8 rounded-lg shadow-lg mb-8">
         <h2 className="text-5xl text-center text-gray-100 mb-4">Services</h2>

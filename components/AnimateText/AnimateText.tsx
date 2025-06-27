@@ -6,7 +6,7 @@ export default function AnimateText(){
     const [displayedText, setDisplayedText] = useState("");
     const [index, setIndex] = useState(0);
     
-    const fullText = "Amar Ali ";
+    const fullText = "Amar Ali Full MERN Stack";
 
     useEffect(() => {
       if (index < fullText.length) {
